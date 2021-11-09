@@ -55,7 +55,7 @@ async function run() {
     app.get('/appointments',verifyToken, async (req, res) => {
       //email ta query er moddhe astese
       const email = req.query.email;
-      const date = new Date(req.query.date).toLocaleDateString();
+      const date = req.query.date;
       //jeta diye filter korbe seta query er moddhe rakhte hobe
       const query = { email: email, date: date };
       const cursor = appointmentsCollection.find(query);
